@@ -65,6 +65,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.4)
     nokogiri (1.5.0-x86-mingw32)
+    pg (0.12.2-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -136,11 +137,12 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  capybara (= 1.1.2)
+  capybara
   coffee-rails (~> 3.2.1)
   jquery-rails
+  pg
   rails (= 3.2.0)
-  rspec-rails (= 2.8.1)
+  rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
