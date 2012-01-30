@@ -1,23 +1,30 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 gem 'pg', '0.12.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.8.1'
+  gem 'guard-rspec'
+  # Needed on win32
+  gem 'rb-fchange'
+  gem 'rb-notifu'
+  gem 'win32console'
 end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '3.2.3'
-  gem 'coffee-rails', '3.2.0'
-  gem 'uglifier', '1.0.3'
+  gem 'sass-rails' #updated
+  gem 'coffee-rails' #updated
+  gem 'uglifier' #ditto
 end
 
-gem 'jquery-rails', '1.0.18'
+gem 'jquery-rails' #here too
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'guard-spork'
+  gem 'spork'
 end
