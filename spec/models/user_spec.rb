@@ -73,7 +73,7 @@ describe User do
   end
   
   describe "with invalid password" do
-    let(:wrong_user) { user.authenticate("invalid") }
+    let(:wrong_user) { @user.authenticate("invalid") }
 
     it { should_not == wrong_user }
     specify { wrong_user.should be_false }
