@@ -30,6 +30,7 @@ end
 gem 'jquery-rails' #here too
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'capybara', '1.1.2'
   gem 'guard-spork'
   gem 'spork'
