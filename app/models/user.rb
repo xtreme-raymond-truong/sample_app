@@ -11,6 +11,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible(:name, :email, :password, :password_confirmation)
+  before_save :create_remember_token
   has_secure_password
 
   valid_email_regex = /\A[\w\d+\-.]+@[a-z\d\-.]+\.[a-z]{2,}+\z/i
@@ -21,4 +22,10 @@ class User < ActiveRecord::Base
     :email, presence: true, format: { with: valid_email_regex },
     uniqueness: { case_sensitive: false }
   )
+  
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end
