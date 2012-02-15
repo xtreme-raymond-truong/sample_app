@@ -11,11 +11,12 @@
 /db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log
 /tmp
 
 # Ignore project files
 /.komodotools
 *.komodoproject
 
+# Ignore win32 stackdumps
 *us.stackdump
