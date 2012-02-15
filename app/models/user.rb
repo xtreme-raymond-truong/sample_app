@@ -15,17 +15,17 @@ class User < ActiveRecord::Base
   has_secure_password
 
   valid_email_regex = /\A[\w\d+\-.]+@[a-z\d\-.]+\.[a-z]{2,}+\z/i
-  validates(:name, presence: true, length: { maximum: 50 })
-  validates(:password, presence: true)
-  #validates(:password_confirmation, presence: true)
+  validates(:name, :presence => true, :length => { :maximum => 50 })
+  validates(:password, :presence => true)
+  #validates(:password_confirmation, :presence => true)
   validates(
-    :email, presence: true, format: { with: valid_email_regex },
-    uniqueness: { case_sensitive: false }
+    :email, :presence => true, :format => { :with => valid_email_regex },
+    :uniqueness => { :case_sensitive => false }
   )
   
   private
 
     def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
+      self.remember_token = SecureRandom.base64
     end
 end
