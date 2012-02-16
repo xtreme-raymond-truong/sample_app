@@ -19,6 +19,9 @@ describe "User pages" do
       before(:all) { 30.times { FactoryGirl.create(:user) } }
       after(:all)  { User.delete_all }
 
+      let(:first_page)  { User.paginate(:page => 1) }
+      let(:second_page) { User.paginate(:page => 2) }
+      
       it { should have_link('Next') }
       it { should have_link('2') }
 
@@ -29,6 +32,18 @@ describe "User pages" do
       end
       
       it { should_not have_link('delete') }
+      
+      it "should list the first page of users" do
+        first_page.each do |user|
+          page.should have_selector('li', :text => user.name)
+        end
+      end
+
+      it "should not list the second page of users" do
+        second_page.each do |user|
+          page.should_not have_selector('li', :text => user.name)
+        end
+      end
 
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
@@ -109,6 +124,7 @@ describe "User pages" do
       sign_in user
       visit edit_user_path(user)
     end
+    
     describe "page" do
       title_test('Edit user', 'Edit user')
       it { should have_link('change', :href => 'http://gravatar.com/emails') }
