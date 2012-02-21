@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible(:name, :email, :password, :password_confirmation)
   before_save :create_remember_token
   has_secure_password
-  has_many :microposts
+  has_many :microposts, :dependent => :destroy
 
   valid_email_regex = /\A[\w\d+\-.]+@[a-z\d\-.]+\.[a-z]{2,}+\z/i
   validates(:name, :presence => true, :length => { :maximum => 50 })
