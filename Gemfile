@@ -4,10 +4,11 @@ gem 'rails', '3.2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
+gem 'multi_json', '1.0.4'
 
 group :development, :production do
-  gem 'activerecord-jdbcsqlite3-adapter'
-  gem 'jdbc-sqlite3'
+  gem 'activerecord-jdbcsqlite3-adapter', '1.2.2'
+  gem 'jdbc-sqlite3', '3.7.2'
 end
 
 # Gems used only for assets and not required
@@ -21,7 +22,7 @@ end
 gem 'jquery-rails', '2.0.0'
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.8.rc'
+  gem 'rspec-rails', '2.8.1'
   gem 'spork', '0.9.0'
 end
 
