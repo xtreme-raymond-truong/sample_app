@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   
   has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
   has_many :followed_users, :through => :relationships, :source => :followed
+  
+  scope :admin, where(:admin => true)
 
   valid_email_regex = /\A[\w\d+\-.]+@[a-z\d\-.]+\.[a-z]{2,}+\z/i
   validates(:name, :presence => true, :length => { :maximum => 50 })

@@ -174,7 +174,6 @@ DEPENDENCIES
   faker (= 1.0.1)
   jdbc-sqlite3 (= 3.7.2)
   jquery-rails (= 2.0.0)
-  multi_json (= 1.0.4)
   rails (= 3.2.1)
   rspec-rails (= 2.8.1)
   sass-rails (= 3.2.4)
